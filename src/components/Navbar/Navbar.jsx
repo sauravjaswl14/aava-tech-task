@@ -9,7 +9,7 @@ const Navbar = () => {
       </Link>
 
       <NavLink
-        className="hover:text-[#645cff] focus:text-[#645cff] transition ease-in-out duration-200"
+        className="font-medium hover:text-[#645cff] focus:text-[#645cff] transition ease-in-out duration-200"
         to="/docs"
       >
         Docs

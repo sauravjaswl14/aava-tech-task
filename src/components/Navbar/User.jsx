@@ -7,11 +7,13 @@ const User = () => {
   const { isLoggedIn, setIsLoggedIn } = useGlobalContext();
   return (
     <div className="flex space-x-8 items-center">
-      <div className="flex space-x-3 items-center">
-        {/* Avatar */}
-        <Avatar />
-        <h4 className="font-semibold">John Doe</h4>
-      </div>
+      {isLoggedIn ? (
+        <div className="flex space-x-3 items-center">
+          {/* Avatar */}
+          <Avatar />
+          <h4 className="font-semibold">John Doe</h4>
+        </div>
+      ) : null}
 
       <button
         onClick={() => setIsLoggedIn(!isLoggedIn)}

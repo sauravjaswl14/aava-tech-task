@@ -1,3 +1,5 @@
+import ImagePicker from "./ImagePicker";
+
 const UploadImage = ({ closeModal }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -8,9 +10,7 @@ const UploadImage = ({ closeModal }) => {
   return (
     <>
       <form onSubmit={handleSubmit} className="m-5 p-5 flex flex-col space-y-5">
-        <div className="flex flex-col space-y-2">
-          <input id="image" type="image" name="image" />
-        </div>
+        <ImagePicker label={"choose image"} name={"image"} />
         <div className="w-full flex justify-between">
           <button type="submit" className="submit-form-btn">
             Upload
