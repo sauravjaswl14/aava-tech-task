@@ -2,7 +2,7 @@ import UserContainer from "./UserContainer";
 
 const Navbar = () => {
   return (
-    <nav className="p-5 px-10 flex justify-between items-center shadow-b-md">
+    <nav className="sticky top-0 p-5 px-10 flex justify-between items-center shadow-b-md z-50">
       <div className="logo">
         <span>S</span>
       </div>

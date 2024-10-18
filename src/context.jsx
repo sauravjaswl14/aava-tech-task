@@ -7,6 +7,8 @@ const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [likeCount, setLikeCount] = useState(0);
 
   const toggleDarkTheme = () => {
     const newDarkTheme = !isDarkTheme;
@@ -18,7 +20,16 @@ export const AppProvider = ({ children }) => {
   }, [isDarkTheme]);
 
   return (
-    <AppContext.Provider value={{ isDarkTheme, toggleDarkTheme }}>
+    <AppContext.Provider
+      value={{
+        isDarkTheme,
+        toggleDarkTheme,
+        isLoggedIn,
+        setIsLoggedIn,
+        likeCount,
+        setLikeCount,
+      }}
+    >
       {children}
     </AppContext.Provider>
   );
