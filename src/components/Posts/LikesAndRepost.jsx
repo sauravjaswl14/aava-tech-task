@@ -2,8 +2,11 @@ import { useState } from "react";
 import { useGlobalContext } from "../../context";
 import { AiFillLike } from "react-icons/ai";
 import { BiRepost } from "react-icons/bi";
+// import { useSelector } from "react-redux";
 
 const LikesAndRepost = () => {
+  // const { likes_count } = useSelector((store) => store.userInteraction);
+
   const { likeCount, setLikeCount } = useGlobalContext();
   const [isPostReposted, setIsPostReposted] = useState(false);
 

@@ -29,7 +29,7 @@ const ImagePicker = ({ label, name }) => {
   };
   return (
     <div className="flex flex-col space-y-5">
-      <label htmlFor={name} className="capitalize">
+      <label htmlFor={name} className="capitalize font-medium text-xl">
         {label}
       </label>
       <div className="w-full h-[200px] border-2 border-[#a4abb9] flex justify-center items-center text-center text-[#a4abb9]">
@@ -55,7 +55,7 @@ const ImagePicker = ({ label, name }) => {
         />
         <button
           onClick={handlePickClick}
-          className="border-none py-2 px-5 bg-[#a4abb9] rounded-md"
+          className="border-none py-2 px-5 bg-[#a4abb9] text-white rounded-md"
           type="button"
         >
           Pick an Image

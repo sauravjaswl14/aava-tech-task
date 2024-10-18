@@ -2,16 +2,18 @@ import Avatar from "../User/Avatar";
 import { AiOutlineLogout } from "react-icons/ai";
 import { AiOutlineLogin } from "react-icons/ai";
 import { useGlobalContext } from "../../context";
+import { useNavigate } from "react-router-dom";
 
 const User = () => {
   const { isLoggedIn, setIsLoggedIn } = useGlobalContext();
+
   return (
     <div className="flex space-x-8 items-center">
       {isLoggedIn ? (
         <div className="flex space-x-3 items-center">
           {/* Avatar */}
           <Avatar />
-          <h4 className="font-semibold">John Doe</h4>
+          <h4 className="font-semibold">{"John Doe"}</h4>
         </div>
       ) : null}
 

@@ -3,8 +3,10 @@ import UploadImage from "./UploadImage";
 const Modal = ({ closeModal }) => {
   return (
     <div className="modal-overlay" onClick={closeModal}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <h2 className="capitalize font-medium">Upload Image</h2>
+      <div
+        className="relative bg-white p-5 rounded-lg w-[50%]"
+        onClick={(e) => e.stopPropagation()}
+      >
         <UploadImage closeModal={closeModal} />
       </div>
     </div>

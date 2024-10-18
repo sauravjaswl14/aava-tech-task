@@ -6,9 +6,20 @@ import { createContext } from "react";
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [user, setUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [likeCount, setLikeCount] = useState(0);
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+
+  const login = (user) => {
+    setUser(user);
+    setIsLoggedIn(true);
+  };
+
+  const logout = () => {
+    setUser(null);
+    setIsLoggedIn(false);
+  };
 
   const toggleDarkTheme = () => {
     const newDarkTheme = !isDarkTheme;
@@ -22,6 +33,10 @@ export const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
+        user,
+        setUser,
+        login,
+        logout,
         isDarkTheme,
         toggleDarkTheme,
         isLoggedIn,
