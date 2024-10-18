@@ -1,11 +1,19 @@
+import { Link, NavLink } from "react-router-dom";
 import UserContainer from "./UserContainer";
 
 const Navbar = () => {
   return (
     <nav className="sticky top-0 p-5 px-10 flex justify-between items-center shadow-b-md z-50">
-      <div className="logo">
+      <Link to="/" className="logo">
         <span>S</span>
-      </div>
+      </Link>
+
+      <NavLink
+        className="hover:text-[#645cff] focus:text-[#645cff] transition ease-in-out duration-200"
+        to="/docs"
+      >
+        Docs
+      </NavLink>
 
       <UserContainer />
     </nav>
