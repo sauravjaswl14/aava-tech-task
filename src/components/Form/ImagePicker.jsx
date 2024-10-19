@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRef } from "react";
+import { useDispatch } from "react-redux";
+import { setGlobalImage } from "../../features/post/postSlice";
 
 const ImagePicker = ({ label, name }) => {
+  const dispatch = useDispatch();
+
   const [pickedImage, setPickedImage] = useState(null);
 
   const imageInput = useRef();
@@ -26,6 +30,11 @@ const ImagePicker = ({ label, name }) => {
 
     fileReader.readAsDataURL(file);
   };
+
+  useEffect(() => {
+    dispatch(setGlobalImage({ img: pickedImage }));
+  }, [pickedImage]);
+
   return (
     <div className="flex flex-col space-y-5">
       <label htmlFor={name} className="capitalize font-medium text-xl">

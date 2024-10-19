@@ -1,14 +1,14 @@
 import ImagePicker from "./ImagePicker";
 import { closeModal } from "../../features/modal/modalSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const UploadImage = () => {
   const dispatch = useDispatch();
+  const { image } = useSelector((store) => store.post);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // const formData = new FormData(e.currentTarget);
-    // console.log([...formData.entries()]);
+    dispatch(closeModal());
   };
 
   return (

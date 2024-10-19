@@ -3,6 +3,8 @@ import postsData from "../../postsData";
 
 const initialState = {
   postsItems: postsData,
+  title: "",
+  image: "",
 };
 
 const postSlice = createSlice({
@@ -22,8 +24,22 @@ const postSlice = createSlice({
 
       post.repost_count += 1;
     },
+    setGlobalImage: (state, { payload }) => {
+      let newImg = payload.img;
+      state.image = newImg;
+    },
+    setGlobalTitle: (state, { payload }) => {
+      let newTitle = payload.title;
+      state.title = newTitle;
+    },
   },
 });
 
-export const { increaseLikesCount, increaseRepostCount } = postSlice.actions;
+export const {
+  increaseLikesCount,
+  increaseRepostCount,
+  setGlobalImage,
+  setGlobalTitle,
+} = postSlice.actions;
+
 export default postSlice.reducer;

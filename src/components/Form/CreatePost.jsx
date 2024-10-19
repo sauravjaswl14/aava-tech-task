@@ -1,13 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Avatar from "../User/Avatar";
 import { FaImage } from "react-icons/fa";
 import Modal from "./Modal";
 import { useSelector, useDispatch } from "react-redux";
-import { openModal, closeModal } from "../../features/modal/modalSlice";
+import { openModal } from "../../features/modal/modalSlice";
+import { setGlobalTitle } from "../../features/post/postSlice";
 
 const CreatePost = () => {
   const { isModalOpen } = useSelector((store) => store.modal);
+
   const dispatch = useDispatch();
+
+  const [title, setTitle] = useState("");
+
+  useEffect(() => {
+    dispatch(setGlobalTitle({ title }));
+  }, [title]);
 
   return (
     <section className="my-20 w-full flex justify-center items-center">
@@ -20,6 +28,8 @@ const CreatePost = () => {
             <input
               type="text"
               name="title"
+              value={title}
+              onChange={(e) => setTitle(e.currentTarget.value)}
               placeholder="Share your thoughts..."
               className="border-none outline-none"
             />
