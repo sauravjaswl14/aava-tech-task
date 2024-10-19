@@ -32,6 +32,14 @@ const postSlice = createSlice({
       let newTitle = payload.title;
       state.title = newTitle;
     },
+    createPost: (state) => {
+      const newPost = {
+        id: Date.now(),
+        title: state.title,
+        image: state.image,
+      };
+      state.postsItems.unshift(newPost);
+    },
   },
 });
 
@@ -40,6 +48,7 @@ export const {
   increaseRepostCount,
   setGlobalImage,
   setGlobalTitle,
+  createPost,
 } = postSlice.actions;
 
 export default postSlice.reducer;

@@ -9,9 +9,9 @@ const Login = () => {
 
   const navigate = useNavigate();
   return (
-    <section className="w-full h-screen flex">
-      <div className="w-1/2 h-full bg-white flex justify-center items-center">
-        <div className="flex flex-col space-y-5 items-center text-center">
+    <section className="w-full h-screen flex flex-col lg:flex-row">
+      <div className="w-full lg:w-1/2 h-full bg-white flex justify-center items-center">
+        <div className="py-5 flex flex-col space-y-5 items-center text-center lg:py-0">
           <Logo />
           <h2 className="text-[#4f515b] text-2xl font-semibold">Welcome</h2>
           <p className="max-w-lg leading-snug ">
@@ -22,7 +22,7 @@ const Login = () => {
           <LoginForm login={login} navigate={navigate} />
         </div>
       </div>
-      <div className="w-1/2 h-full">
+      <div className="w-full lg:w-1/2 h-full">
         <img src={loginPageImg} className="h-full" alt="boy holding a tablet" />
       </div>
     </section>

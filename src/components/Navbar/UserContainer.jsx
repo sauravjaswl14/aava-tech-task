@@ -3,7 +3,7 @@ import User from "./User";
 
 const UserContainer = () => {
   return (
-    <div className="w-1/4 flex justify-between items-center">
+    <div className="hidden  lg:w-1/4 lg:flex justify-between items-center">
       <ThemeToggle />
       <User />
     </div>
