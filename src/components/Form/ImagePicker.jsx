@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useRef } from "react";
-import { ImGift } from "react-icons/im";
 
 const ImagePicker = ({ label, name }) => {
   const [pickedImage, setPickedImage] = useState(null);

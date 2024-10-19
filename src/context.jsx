@@ -8,7 +8,6 @@ const AppContext = createContext();
 export const AppProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [likeCount, setLikeCount] = useState(0);
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   const login = (user) => {
@@ -41,8 +40,6 @@ export const AppProvider = ({ children }) => {
         toggleDarkTheme,
         isLoggedIn,
         setIsLoggedIn,
-        likeCount,
-        setLikeCount,
       }}
     >
       {children}

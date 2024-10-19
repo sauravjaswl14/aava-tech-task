@@ -1,14 +1,11 @@
 import postImg1 from "../../assets/post-img1.jpg";
 
-const PostContent = () => {
+const PostContent = ({ title, name, image }) => {
   return (
     <div className="flex flex-col space-y-5">
-      <p>
-        I'm thrilled to share that I've completed a graduate certificate course
-        in project management with the president's honor roll.
-      </p>
+      <p>{title}</p>
 
-      <img src={postImg1} className="w-full rounded-md" alt="post image" />
+      <img src={image} className="w-full rounded-md" alt={name} />
     </div>
   );
 };

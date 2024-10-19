@@ -15,7 +15,7 @@ const Post = ({
   return (
     <div className="w-[60%] bg-white p-5 rounded-md flex flex-col space-y-6 post-container-shadow">
       <UserInfo name={name} created_at={created_at} work_title={work_title} />
-      <PostContent title={title} image={image} />
+      <PostContent title={title} name={name} image={image} />
       <LikesAndRepost
         id={id}
         like_count={like_count}

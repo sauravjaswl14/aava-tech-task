@@ -1,6 +1,10 @@
 import ImagePicker from "./ImagePicker";
+import { closeModal } from "../../features/modal/modalSlice";
+import { useDispatch } from "react-redux";
 
-const UploadImage = ({ closeModal }) => {
+const UploadImage = () => {
+  const dispatch = useDispatch();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // const formData = new FormData(e.currentTarget);
@@ -16,7 +20,10 @@ const UploadImage = ({ closeModal }) => {
             Upload
           </button>
 
-          <button onClick={closeModal} className="close-modal-btn">
+          <button
+            onClick={() => dispatch(closeModal())}
+            className="close-modal-btn"
+          >
             Close Modal
           </button>
         </div>

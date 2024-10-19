@@ -2,17 +2,13 @@ import { useState } from "react";
 import Avatar from "../User/Avatar";
 import { FaImage } from "react-icons/fa";
 import Modal from "./Modal";
+import { useSelector, useDispatch } from "react-redux";
+import { openModal, closeModal } from "../../features/modal/modalSlice";
 
 const CreatePost = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isModalOpen } = useSelector((store) => store.modal);
+  const dispatch = useDispatch();
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
   return (
     <section className="my-20 w-full flex justify-center items-center">
       {/* main container */}
@@ -30,7 +26,7 @@ const CreatePost = () => {
           </div>
 
           <button
-            onClick={openModal}
+            onClick={() => dispatch(openModal())}
             className="w-fit p-2  bg-[#eef0f2] rounded-md flex space-x-2 items-center hover:scale-95 transition ease-in-out duration-200 "
           >
             <FaImage />
@@ -39,7 +35,7 @@ const CreatePost = () => {
         </div>
       </div>
 
-      {isModalOpen && <Modal closeModal={closeModal} />}
+      {isModalOpen && <Modal />}
     </section>
   );
 };
