@@ -3,6 +3,7 @@ import Docs from "./components/Docs";
 import Landing from "./components/Landing";
 import HomeLayout from "./components/HomeLayout";
 import Login from "./components/Login";
+import RequireAuth from "./components/RequireAuth";
 
 const router = createBrowserRouter([
   {
@@ -11,7 +12,11 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Landing />,
+        element: (
+          <RequireAuth>
+            <Landing />
+          </RequireAuth>
+        ),
       },
 
       {

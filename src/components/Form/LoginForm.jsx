@@ -4,11 +4,7 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import { useGlobalContext } from "../../context";
 import { useNavigate } from "react-router-dom";
 
-const LoginForm = () => {
-  const { login } = useGlobalContext();
-
-  const navigate = useNavigate();
-
+const LoginForm = ({ login, navigate }) => {
   const [newUser, setNewUser] = useState({
     username: "",
     password: "",
