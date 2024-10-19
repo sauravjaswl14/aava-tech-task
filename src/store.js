@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import interactionReducer from "./features/userInteractions/userInteractionsSlice";
+import postReducer from "./features/post/postSlice";
+import modalReducer from "./features/modal/modalSlice";
 
 export const store = configureStore({
   reducer: {
-    userInteraction: interactionReducer,
+    post: postReducer,
+    modal: modalReducer,
   },
 });

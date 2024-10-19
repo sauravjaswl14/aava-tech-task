@@ -1,46 +1,41 @@
-import { useState } from "react";
-import { useGlobalContext } from "../../context";
 import { AiFillLike } from "react-icons/ai";
 import { BiRepost } from "react-icons/bi";
-// import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import {
+  increaseLikesCount,
+  increaseRepostCount,
+} from "../../features/post/postSlice";
 
-const LikesAndRepost = () => {
-  // const { likes_count } = useSelector((store) => store.userInteraction);
-
-  const { likeCount, setLikeCount } = useGlobalContext();
-  const [isPostReposted, setIsPostReposted] = useState(false);
-
-  const handleClick = () => {
-    setLikeCount((current) => current + 1);
-  };
-
-  const handleRepost = () => {
-    setIsPostReposted((current) => !current);
-  };
+const LikesAndRepost = ({ id, like_count, repost_count }) => {
+  const dispatch = useDispatch();
 
   return (
     <div className="w-full flex justify-between">
       {/* like button */}
       <button
-        onClick={handleClick}
+        onClick={() => dispatch(increaseLikesCount({ id }))}
         className={`flex space-x-1 items-center hover:text-[#645cff] font-medium transition ease-in-out duration-200 ${
-          likeCount > 0 ? "text-[#645cff]" : null
+          like_count > 0 ? "text-[#645cff]" : null
         }`}
       >
         <AiFillLike />
         <span>
-          {likeCount > 0 ? "Liked" : "Like"} {`(${likeCount})`}
+          {like_count > 0 ? "Liked" : "Like"}{" "}
+          {like_count > 0 ? `(${like_count})` : null}
         </span>
       </button>
       {/* repost button */}
       <button
-        onClick={handleRepost}
+        onClick={() => dispatch(increaseRepostCount({ id }))}
         className={`flex space-x-1 items-center font-medium hover:text-[#645cff]  transition ease-in-out duration-200 ${
-          isPostReposted ? "text-[#645cff]" : null
+          repost_count ? "text-[#645cff]" : null
         }`}
       >
         <BiRepost />
-        <span>Repost</span>
+        <span>
+          {repost_count > 0 ? "Reposted" : "Repost"}{" "}
+          {repost_count > 0 ? `(${repost_count})` : null}
+        </span>
       </button>
     </div>
   );
